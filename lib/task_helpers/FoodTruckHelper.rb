@@ -2,7 +2,7 @@ module FoodTruckHelper
   require 'net/http'
 
 
-  def getFoodTrucks(params)
+  def self.getFoodTrucks(params = {})
 
     # params {}
     # day of week | default: TODAY
