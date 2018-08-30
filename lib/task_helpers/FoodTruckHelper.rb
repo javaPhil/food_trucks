@@ -40,6 +40,7 @@ module FoodTruckHelper
     end
 
     puts "RESULTS COUNT: #{open_food_trucks.length}"
+    open_food_trucks.uniq!
     return open_food_trucks.sort_by!{|truck| truck["name"]}
 
   end
