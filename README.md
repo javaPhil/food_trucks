@@ -1,6 +1,6 @@
 # README
 
-Command line application to find all of the open food trucks in San Francisco for today.
+Command line application to find all of the open food trucks in San Francisco for today from San Francisco government’s API.
 
 ## Mac Installation
 
