@@ -47,13 +47,11 @@ module FoodTruckHelper
   end
 
   def self.pretty_print_results(all_food_trucks, limit, offset)
-    # columns: NAME | LOCATION | DESCRIPTION
-
     puts "NAME | LOCATION | DESCRIPTION"
     puts "-----------------------------"
     min = offset * limit
-    max = min + limit
-    food_trucks = all_food_trucks[min, max]
+    max = min + (limit-1)
+    food_trucks = all_food_trucks[min..max]
     food_trucks.each do |truck|
       puts "#{truck[:name]} | #{truck[:location]} | #{truck[:desc]}"
     end
