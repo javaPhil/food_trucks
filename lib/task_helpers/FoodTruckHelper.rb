@@ -30,18 +30,19 @@ module FoodTruckHelper
       truckStart = Time.parse(truck["starttime"])
       truckEnd = Time.parse(truck["endtime"])
       if Time.now >= truckStart && Time.now < truckEnd
-        open_food_trucks.push({
-                                  name: truck["applicant"],
-                                  location: truck["location"],
-                                  desc: truck["optionaltext"]
-                              }
-        )
+        open_truck = {
+            name: truck["applicant"],
+            location: truck["location"],
+            desc: truck["optionaltext"],
+            addrModifiedAt: truck["addrdatemodified"]
+        }
+        open_food_trucks.push(open_truck)
       end
     end
 
-    puts "RESULTS COUNT: #{open_food_trucks.length}"
     open_food_trucks.uniq!
-    return open_food_trucks.sort_by!{|truck| truck["name"]}
+    puts "TOTAL TRUCKS: #{open_food_trucks.length}"
+    return open_food_trucks.sort_by!{|truck| truck[:name]}
 
   end
 
